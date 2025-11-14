@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database (Optional - for persistent storage)
+  postgres:
+    image: postgres:16-alpine
+    container_name: swarmtech-db
+    environment:
+      POSTGRES_USER: swarmtech
+      POSTGRES_PASSWORD: swarmtech
+      POSTGRES_DB: swarmtech
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U swarmtech"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Signaling Server
+  server:
+    build:
+      context: .
+      dockerfile: ./server/Dockerfile
+    container_name: swarmtech-server
+    ports:
+      - "8001:8001"
+    environment:
+      PORT: 8001
+      NODE_ENV: production
+      CLIENT_URL: http://localhost:5173
+      DATABASE_URL: postgresql://swarmtech:swarmtech@postgres:5432/swarmtech
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Client (for production build)
+  client:
+    build:
+      context: .
+      dockerfile: ./client/Dockerfile
+    container_name: swarmtech-client
+    ports:
+      - "5173:80"
+    environment:
+      VITE_SIGNALING_SERVER: http://localhost:8001
+    depends_on:
+      - server
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

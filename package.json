@@ -1,0 +1,47 @@
+{
+  "name": "swarmtech",
+  "version": "1.0.0",
+  "description": "Decentralized peer-to-peer coordination platform for disaster response teams",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"pnpm run dev:server\" \"pnpm run dev:client\"",
+    "dev:server": "pnpm run --filter=server dev",
+    "dev:client": "pnpm run --filter=client dev",
+    "build": "pnpm run -r build",
+    "build:client": "pnpm run --filter=client build",
+    "build:server": "pnpm run --filter=server build",
+    "build:common": "pnpm run --filter=common build",
+    "install:all": "bash scripts/install.sh",
+    "clean": "bash scripts/clean.sh",
+    "docker:up": "bash scripts/docker-up.sh",
+    "docker:down": "bash scripts/docker-down.sh",
+    "docker:build": "docker-compose build",
+    "docker:logs": "docker-compose logs -f",
+    "docker:ps": "docker-compose ps",
+    "start": "pnpm run --filter=server start",
+    "start:prod": "pnpm run build && pnpm run start",
+    "lint": "pnpm run -r lint",
+    "lint:fix": "pnpm run -r lint --fix",
+    "test": "pnpm run -r test",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "setup": "pnpm install && pnpm run build:common && cp -n server/.env.example server/.env 2>/dev/null || true && cp -n client/.env.example client/.env 2>/dev/null || true"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "prettier": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "keywords": [
+    "webrtc",
+    "crdt",
+    "p2p",
+    "disaster-response",
+    "decentralized",
+    "mesh-network"
+  ],
+  "author": "SwarmTech Contributors",
+  "license": "MIT"
+}

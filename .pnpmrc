@@ -1,0 +1,9 @@
+# Enable lifecycle scripts
+enable-pre-post-scripts=true
+
+# Hoist patterns for better compatibility
+public-hoist-pattern[]=*prisma*
+public-hoist-pattern[]=*esbuild*
+
+# Auto-approve build scripts for these packages (pnpm v10+)
+lifecycle-approvals=@prisma/client:*,@prisma/engines:*,esbuild:*,prisma:*,rollup:*
