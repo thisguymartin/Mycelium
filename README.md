@@ -1,8 +1,8 @@
-# SwarmTech 🚨
+# Mycelium 🚨
 
 **Decentralized Peer-to-Peer Coordination Platform for Disaster Response Teams**
 
-SwarmTech enables real-time coordination for disaster response teams using WebRTC for direct peer-to-peer communication and CRDTs for conflict-free data synchronization. No central server required for communication once connected!
+Mycelium enables real-time coordination for disaster response teams using WebRTC for direct peer-to-peer communication and CRDTs for conflict-free data synchronization. No central server required for communication once connected!
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Node Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen)
@@ -40,8 +40,8 @@ The easiest way to get started is with Docker:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/swarmtech.git
-cd swarmtech
+git clone https://github.com/yourusername/Mycelium.git
+cd Mycelium
 
 # Start all services
 docker-compose up
@@ -58,8 +58,8 @@ Requirements:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/swarmtech.git
-cd swarmtech
+git clone https://github.com/yourusername/Mycelium.git
+cd Mycelium
 
 # Install dependencies
 npm install
@@ -130,7 +130,7 @@ See [ARCHITECTURE.md](./ARCHITECTURE.md) for detailed architecture documentation
 ## Project Structure
 
 ```
-swarmtech/
+Mycelium/
 ├── client/              # React + Vite web application
 │   ├── src/
 │   │   ├── components/  # React components (Map, Chat, Sidebar, etc.)
@@ -177,7 +177,7 @@ npm run dev:server  # Server only (tsx watch mode)
 PORT=8001
 NODE_ENV=development
 CLIENT_URL=http://localhost:5173
-DATABASE_URL=postgresql://swarmtech:swarmtech@localhost:5432/swarmtech
+DATABASE_URL=postgresql://Mycelium:Mycelium@localhost:5432/Mycelium
 ```
 
 **Client** (client/.env):
@@ -373,20 +373,20 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-- **Issues**: Report bugs or request features via [GitHub Issues](https://github.com/yourusername/swarmtech/issues)
+- **Issues**: Report bugs or request features via [GitHub Issues](https://github.com/yourusername/Mycelium/issues)
 - **Documentation**: See [ARCHITECTURE.md](./ARCHITECTURE.md) for technical details
 - **Community**: Join discussions in GitHub Discussions
 
 ## Citation
 
-If you use SwarmTech in your research, please cite:
+If you use Mycelium in your research, please cite:
 
 ```bibtex
-@software{swarmtech2025,
-  title = {SwarmTech: Decentralized Disaster Response Coordination},
+@software{Mycelium2025,
+  title = {Mycelium: Decentralized Disaster Response Coordination},
   year = {2025},
-  author = {SwarmTech Contributors},
-  url = {https://github.com/yourusername/swarmtech}
+  author = {Mycelium Contributors},
+  url = {https://github.com/yourusername/Mycelium}
 }
 ```
 
